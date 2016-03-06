@@ -20,6 +20,7 @@ before_script:
     - cd ..
     - rm -rf test
 script:
+    - cd src
     - dotnet restore
     - dotnet build
     - dotnet run
