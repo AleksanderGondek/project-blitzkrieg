@@ -5,7 +5,6 @@ Project Blitzkrieg - Scalable game decision engine
 
  [![Stories in Backlog](https://badge.waffle.io/AleksanderGondek/project-blitzkrieg.png?label=backlog&title=Backlog)](https://waffle.io/AleksanderGondek/project-blitzkrieg)
  [![Stories in progress](https://badge.waffle.io/AleksanderGondek/project-blitzkrieg.png?label=In%20Progress&title=In progress)](https://waffle.io/AleksanderGondek/project-blitzkrieg)
- [![Stories in progress](https://badge.waffle.io/AleksanderGondek/project-blitzkrieg.png?label=done&title=Done)](https://waffle.io/AleksanderGondek/project-blitzkrieg)
 
 One could think of Blitzkrieg project as “_Artificial Intelligence for games As a Service_” – the intention is to create ease to use, working out-of-the-box solution that will predict best possible moves for any game it is provided with. Moreover, it will be written with scalability in mind, so that it could adjust to the quantity of requests it is receiving or increase its prediction accuracy on the fly, without any effort.
 
