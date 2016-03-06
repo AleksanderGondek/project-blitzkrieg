@@ -1,0 +1,35 @@
+{
+  "name": "blitzkrieg-docs-theme",
+  "description": "Theme for stylizng jekyll-bootstrap",
+  "main": "",
+  "authors": [
+    "Aleksander Gondek"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "docs",
+    "blitzkrieg",
+    "theme"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "https://github.com/AleksanderGondek/project-blitzkrieg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AleksanderGondek/project-blitzkrieg"
+  },
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bootswatch": "^3.3.6+1",
+    "font-awesome": "fontawesome#^4.5.0"
+  }
+}

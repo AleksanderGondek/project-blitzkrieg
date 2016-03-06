@@ -1,0 +1,29 @@
+{
+  "name": "blitzkrieg-docs-theme",
+  "version": "1.0.0",
+  "description": "Theme for stylizng jekyll-bootstrap ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp default"
+  },
+  "keywords": [
+    "docs",
+    "blitzkrieg",
+    "theme"
+  ],
+  "author": "Aleksander Gondek",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AleksanderGondek/project-blitzkrieg"
+  },
+  "private": true,
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-clean": "^0.3.1",
+    "gulp-minify-css": "^1.2.3",
+    "gulp-util": "^3.0.7"
+  }
+}

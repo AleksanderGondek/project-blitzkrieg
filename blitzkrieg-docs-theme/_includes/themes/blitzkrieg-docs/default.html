@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}"> {% endif %}
+    <meta name="author" content="{{ site.author.name }}">
+
+    <link rel="icon" href="{{ ASSET_PATH }}/blitzkrieg-docs/img/logo-32.png">
+
+    <title>{{ page.title }}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootswatch CSS -->
+    <link href="{{ ASSET_PATH }}/bootswatch-darkly/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ ASSET_PATH }}/blitzkrieg-docs/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link href="{{ ASSET_PATH }}/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ ASSET_PATH }}/blitzkrieg-docs/css/blitzkrieg-docs.css" rel="stylesheet">
+
+    <!-- Custom logo -->
+    <link href="{{ ASSET_PATH }}/blitzkrieg-docs/css/blitzkrieg-docs-icon.css" rel="stylesheet">
+
+    <!-- Syntax highlighting -->
+    <link href="{{ ASSET_PATH }}/blitzkrieg-docs/css/highlight-syntax-monokai.css" rel="stylesheet">
+
+    <!-- atom & rss feed -->
+    <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    {% assign pages_list = site.pages %}
+                    {% assign group = 'top-menu' %}
+                    {% include JB/pages_list %}
+                    <li><a href="{{ site.github_url }}"><i class="fa fa-github fa-lg"></i> Github</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">
+                <i class="icons8-triggering"></i>
+                {{ site.title }}
+            </h3>
+        </div>
+
+        {% if site.show_alpha_warning %}
+        <div class="alert alert-info text-center" role="alert">
+            <strong>Careful!</strong>
+            This project is under heavy development and is not even in beta stage.
+        </div>
+         {% endif %}
+
+        {{ content }}
+
+        <footer class="footer">
+            <p class="text-right">
+                &copy; {{ site.time | date: '%Y' }} {{ site.title }} with help from
+                <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">
+                    Jekyll Bootstrap
+                </a> and <a href="http://getbootstrap.com" target="_blank">
+                    Bootstrap
+                </a>
+            </p>
+            <p class="text-right">
+                Site last generated: {{ site.time | date: "%b %-d, %Y" }}
+            </p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+    {% include JB/analytics %}
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ ASSET_PATH }}/blitzkrieg-docs/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- Jquery -->
+    <script src="{{ ASSET_PATH }}/jquery/js/jquery.min.js"></script>
+
+    <!-- Boostrap js -->
+    <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

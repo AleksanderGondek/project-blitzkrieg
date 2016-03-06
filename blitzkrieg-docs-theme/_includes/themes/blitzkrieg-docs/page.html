@@ -1,0 +1,20 @@
+<div class="row marketing">
+    <div class="col-xs-3">
+        <ul class="nav nav-pills nav-stacked">
+            {% assign pages_list = site.pages %}
+            {% assign group = 'side-menu' %}
+            {% include JB/pages_list %}
+        </ul>
+    </div>
+
+    <div class="col-xs-9">
+        <h3>
+            {{ page.title }}
+            {% if page.tagline %}
+            <small>{{ page.tagline }}</small>
+            {% endif %}
+        </h3>
+
+        {{content}}
+    </div>
+</div>

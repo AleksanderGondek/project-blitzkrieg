@@ -1,0 +1,6 @@
+bower_components
+node_modules
+assets/themes/blitzkrieg-docs
+
+# Do not ignore file describing directory
+!assets/themes/blitzkrieg-docs/directory-info.md

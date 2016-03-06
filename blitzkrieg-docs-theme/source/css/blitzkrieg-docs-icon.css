@@ -1,0 +1,41 @@
+/*
+  Icon Font: Thunder
+*/
+
+@font-face {
+  font-family: "Thunder";
+  src: url("../fonts/Thunder_d9385780be8068a0190455de59a11d5a.eot");
+  src: url("../fonts/Thunder_d9385780be8068a0190455de59a11d5a.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Thunder_d9385780be8068a0190455de59a11d5a.woff") format("woff"),
+       url("../fonts/Thunder_d9385780be8068a0190455de59a11d5a.ttf") format("truetype"),
+       url("../fonts/Thunder_d9385780be8068a0190455de59a11d5a.svg#Thunder") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Thunder";
+    src: url("../fonts/Thunder_d9385780be8068a0190455de59a11d5a.svg#Thunder") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icons8-triggering:before {
+  display: inline-block;
+  font-family: "Thunder";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icons8-triggering:before { content: "\f100"; }

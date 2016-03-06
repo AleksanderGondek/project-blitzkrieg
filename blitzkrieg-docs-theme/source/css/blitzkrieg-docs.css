@@ -1,0 +1,134 @@
+/* Change default fonts to get more Windows feel */
+
+body {
+    font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;
+}
+
+/* Remove all round corners */
+
+* {
+    border-radius: 0 !important;
+}
+
+/* Change color link to match jumbotron-like purple*/
+a, a:hover, a:visited {
+    color: #FF1B53;
+}
+
+/* Change colours of navbars to match the jumbotron image */
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color: #ffffff;
+    background-color: #790C36;
+}
+
+
+/* Space out content a bit */
+
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header, .marketing, .footer {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Custom page header */
+
+.header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+}
+
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    background-image: url("../img/jumbotron.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.jumbotron .btn {
+    padding: 14px 24px;
+    font-size: 21px;
+    background-color: #2D0811;
+    border-color: #B94864;
+    border-width: 1px;
+}
+
+.jumbotron .btn:active {
+    background-color: #29040D;
+    border-color: #B94864;
+    border-width: 1px;
+}
+
+.jumbotron .btn:visited {
+    color: #fff;
+}
+
+/* Supporting marketing content */
+
+.marketing {
+    margin: 0px 0px 20px 0px;
+}
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header, .marketing, .footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+.post-hr {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
