@@ -1,0 +1,15 @@
+<div class="row marketing">
+    <h3>
+        {{ page.title }}
+        {% if page.tagline %}
+        <small>{{ page.tagline }}</small>
+        {% endif %}
+    </h3>
+
+    <hr class="post-hr">
+    <p class="text-right">
+        <i class="fa fa-history"></i>&nbsp;&nbsp;<small>Posted on {{ page.date | date_to_long_string }}</small>
+    </p>
+
+    {{content}}
+</div>
