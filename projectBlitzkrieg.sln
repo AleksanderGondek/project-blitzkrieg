@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project-blitzkrieg", "project-blitzkrieg\project-blitzkrieg.csproj", "{687FB117-DBF0-44EC-8AB5-03BF40A7A80C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "projectBlitzkrieg", "projectBlitzkrieg\projectBlitzkrieg.csproj", "{9DB93E8F-4DCD-481D-9E9C-DEAD94231662}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{687FB117-DBF0-44EC-8AB5-03BF40A7A80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{687FB117-DBF0-44EC-8AB5-03BF40A7A80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{687FB117-DBF0-44EC-8AB5-03BF40A7A80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{687FB117-DBF0-44EC-8AB5-03BF40A7A80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB93E8F-4DCD-481D-9E9C-DEAD94231662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB93E8F-4DCD-481D-9E9C-DEAD94231662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB93E8F-4DCD-481D-9E9C-DEAD94231662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB93E8F-4DCD-481D-9E9C-DEAD94231662}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

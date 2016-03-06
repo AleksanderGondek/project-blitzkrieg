@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("project-blitzkrieg")]
+[assembly: AssemblyTitle("projectBlitzkrieg")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("project-blitzkrieg")]
+[assembly: AssemblyProduct("projectBlitzkrieg")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("687fb117-dbf0-44ec-8ab5-03bf40a7a80c")]
+[assembly: Guid("9db93e8f-4dcd-481d-9e9c-dead94231662")]
 
 // Version information for an assembly consists of the following four values:
 //
