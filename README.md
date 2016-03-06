@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/AleksanderGondek/project-blitzkrieg.png?label=ready&title=Ready)](https://waffle.io/AleksanderGondek/project-blitzkrieg)
 Project Blitzkrieg - Scalable game decision making engine
 =======
 
