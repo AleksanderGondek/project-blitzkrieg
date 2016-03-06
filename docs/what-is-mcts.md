@@ -14,7 +14,7 @@ Due to mentions advantages over alfa-beta search, MCTS is getting widely adopted
 
 ### Serial implementation overview
 
-![alt tag](https://raw.github.com/AleksanderGondek/project-blitzkrieg/master/assets/images/illustrations/SchemeOfMCTS.png)
+![alt tag](https://raw.github.com/AleksanderGondek/project-blitzkrieg/gh-pages/assets/images/illustrations/SchemeOfMCTS.png)
 
 Monte Carlo Tree Search is algorithm based on semi-randomized exploration on given search space. It uses the results of previous explorations to continuously build game tree, due to which it become increasingly better at given game, with each exploration performed. This also increased the accuracy of estimating which move is better.
 Each run of the algorithm that is used to expand the game tree is called “playout”. In each playout the algorithm is playing the game to the end (or timeout) and then it uses the game playout outcome to weight the tree nodes so that in future better nodes (moves) ale more likely to be selected.
@@ -33,7 +33,7 @@ longer it plays the better it becomes in choosing the best possible moves.
 
 ### Parallel implementation overview
 
-![alt tag](https://raw.github.com/AleksanderGondek/project-blitzkrieg/master/assets/images/illustrations/SchemeOfParallelMCTS.png)
+![alt tag](https://raw.github.com/AleksanderGondek/project-blitzkrieg/gh-pages/assets/images/illustrations/SchemeOfParallelMCTS.png)
 
 Broadly speaking we can distinguish three ways of parallelizing MCTS algorithm: leaf parallelization, root parallelization and tree parallelization.
 
