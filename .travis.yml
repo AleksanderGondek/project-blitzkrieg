@@ -1,7 +1,7 @@
 sudo: required
 dist: trusty
 language: csharp
-solution: project-blitzkrieg.sln
+solution: projectBlitzkrieg.sln
 
 # Prepare for .NET Core installation
 # before_install:
