@@ -181,7 +181,7 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
         private string GetHashState()
         {
             var sha256Hasher = SHA256.Create();
-            var stringPayload = $"{Version}|{Type}|{JsonConvert.SerializeObject(_gameBoard, Formatting.None)}";
+            var stringPayload = $"{Type}|{Version}|{JsonConvert.SerializeObject(_gameBoard, Formatting.None)}";
             var byteRepresentation = Encoding.UTF8.GetBytes(stringPayload);
             var byteHash = sha256Hasher.ComputeHash(byteRepresentation);
             var hash = new StringBuilder(byteHash.Length * 2);

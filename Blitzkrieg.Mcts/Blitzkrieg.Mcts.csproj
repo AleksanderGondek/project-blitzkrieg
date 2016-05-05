@@ -53,11 +53,26 @@
     <Compile Include="GameStates\Factories\IGameStateFactory.cs" />
     <Compile Include="GameStates\GameStateMetadataModel.cs" />
     <Compile Include="GameStates\IGameState.cs" />
+    <Compile Include="GameTrees\Exceptions\MctsNodeNotValid.cs" />
+    <Compile Include="GameTrees\Factories\IMctsNodeFactory.cs" />
+    <Compile Include="GameTrees\Factories\MctsNodeFactory.cs" />
+    <Compile Include="GameTrees\Handlers\IMctsNodeHandler.cs" />
+    <Compile Include="GameTrees\Handlers\MctsWithUctNodeHandler.cs" />
+    <Compile Include="GameTrees\IMctsNode.cs" />
+    <Compile Include="GameTrees\MctsNode.cs" />
+    <Compile Include="GameTrees\MctsNodeMetadataModel.cs" />
+    <Compile Include="GameTrees\Playouts\DefaultSerialPlayout.cs" />
+    <Compile Include="GameTrees\Playouts\IMctsPlayout.cs" />
+    <Compile Include="GameTrees\Utilities\NodeComparators.cs" />
+    <Compile Include="Persistence\Contracts\IDefaultDocumentContract.cs" />
+    <Compile Include="Persistence\Repositories\InMemoryDocumentRepository.cs" />
+    <Compile Include="Persistence\Repositories\RavenDbDocumentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

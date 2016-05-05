@@ -2,7 +2,7 @@
 
 namespace Blitzkrieg.Mcts.GameStates.Factories
 {
-    public class GameStateFactory<T> : IGameStateFactory<T> where T : IGameState
+    public class GameStateFactory<T> : IGameStateFactory<T> where T : class, IGameState, new()
     {
         public T FromJson(string json)
         {
@@ -16,6 +16,14 @@ namespace Blitzkrieg.Mcts.GameStates.Factories
         public T FromInstance(T instance)
         {
             return FromJson(instance.ToJson());
+        }
+
+        public T NewGameState()
+        {
+            var state = new T();
+            state.Initialize();
+            state.IsValid();
+            return state;
         }
     }
 }

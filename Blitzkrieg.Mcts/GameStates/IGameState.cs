@@ -13,7 +13,7 @@ namespace Blitzkrieg.Mcts.GameStates
         string Hash { get; }
         string HashType { get; set; }
 
-        void Initialize(string versionOverride, string hashTypeOverride, IList<string> playersOverride, string lastPlayer, object metaData);
+        void Initialize(string versionOverride = null, string hashTypeOverride = null, IList<string> playersOverride = null, string lastPlayer = null, object metaData = null);
         void IsValid();
         IList<string> AvailableActions();
         void PerformAction(string action);
