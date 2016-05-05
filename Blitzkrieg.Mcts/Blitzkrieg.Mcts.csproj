@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9DB93E8F-4DCD-481D-9E9C-DEAD94231662}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{C5281095-256C-4244-BE33-8EBDDEF43229}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>projectBlitzkrieg</RootNamespace>
-    <AssemblyName>projectBlitzkrieg</AssemblyName>
+    <RootNamespace>Blitzkrieg.Mcts</RootNamespace>
+    <AssemblyName>Blitzkrieg.Mcts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="GameStates\Examples\Chess\BoardDefinitions.cs" />
+    <Compile Include="GameStates\Examples\Chess\ChessGameStateGameplay.cs" />
+    <Compile Include="GameStates\Examples\Chess\ChessGameStateIGameState.cs" />
+    <Compile Include="GameStates\Examples\Chess\Models\ChessField.cs" />
+    <Compile Include="GameStates\Exceptions\StateNotValid.cs" />
+    <Compile Include="GameStates\Factories\GameStateFactory.cs" />
+    <Compile Include="GameStates\Factories\IGameStateFactory.cs" />
+    <Compile Include="GameStates\GameStateMetadataModel.cs" />
+    <Compile Include="GameStates\IGameState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
