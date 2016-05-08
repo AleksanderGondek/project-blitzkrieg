@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Blitzkrieg.Mcts.GameStates;
 using Blitzkrieg.Mcts.GameTrees.Factories;
 using Blitzkrieg.Mcts.GameTrees.Utilities;
@@ -44,6 +42,7 @@ namespace Blitzkrieg.Mcts.GameTrees.Handlers
                 return null;
             }
 
+            nodeParent.ActionsNotTaken.Remove(action);
             nodeParent.Children.Add(newNode.Id);
             if (!DataBroker.Update(nodeParent))
             {

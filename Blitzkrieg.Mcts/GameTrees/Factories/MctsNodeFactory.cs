@@ -28,6 +28,7 @@ namespace Blitzkrieg.Mcts.GameTrees.Factories
         {
             var node = new T();
             node.Initialize(gameStateOverride:GameStateFactory.FromInstance(gameState));
+            node.ActionsNotTaken = node.GameState.AvailableActions();
             node.IsValid();
             return node;
         }

@@ -246,7 +246,7 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
             }
 
             // Check avaiable moves "up" from current position
-            if (numberIndex + 2 >= 1)
+            if (numberIndex + 2 <= 8)
             {
                 // Check move on the 'left'
                 letter = letterIndex;
@@ -346,7 +346,7 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
             // Up-right
             letter = letterIndex;
             number = numberIndex;
-            while (++letter >= 'A' && ++number <= 8)
+            while (++letter <= 'H' && ++number <= 8)
             {
                 if (HandleMoveToField($"{letterIndex}{numberIndex}", $"{letter}{number}", possibleMoves, currentPositionData))
                 {
@@ -397,7 +397,7 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
             // Up-right
             letter = letterIndex;
             number = numberIndex;
-            while (++letter >= 'A' && ++number <= 8)
+            while (++letter <= 'H' && ++number <= 8)
             {
                 if (HandleMoveToField($"{letterIndex}{numberIndex}", $"{letter}{number}", possibleMoves, currentPositionData))
                 {
@@ -483,7 +483,7 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
             // Up-right
             letter = letterIndex;
             number = numberIndex;
-            if (++letter >= 'A' && ++number <= 8)
+            if (++letter <= 'H' && ++number <= 8)
             {
                 HandleMoveToField($"{letterIndex}{numberIndex}", $"{letter}{number}", possibleMoves, currentPositionData);
             }
@@ -533,20 +533,33 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
                 int newNumberIndex;
                 if (currentPositionData.IsStartingPosition)
                 {
-                    newNumberIndex = numberIndex + 2 <= 8 ? numberIndex + 2 : 8;
-                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                    newNumberIndex = numberIndex + 2;
+                    if (newNumberIndex <= 8)
+                    {
+                        HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                    }
+
                 }
                 // Move Forward
-                newNumberIndex = numberIndex + 1 <= 8 ? numberIndex + 1 : 0;
-                HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                newNumberIndex = numberIndex + 1;
+                if (newNumberIndex <= 8)
+                {
+                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                }
 
                 //Move diagonaly
                 var letterIndexCopy = letterIndex;
-                var newLetterIndex = --letterIndexCopy >= 'A' ? letterIndexCopy : 'A';
-                HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                var newLetterIndex = --letterIndexCopy;
+                if (newLetterIndex >= 'A' && newNumberIndex <= 8)
+                {
+                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                }
                 letterIndexCopy = letterIndex;
-                newLetterIndex = ++letterIndexCopy <= 'H' ? letterIndexCopy : 'H';
-                HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                newLetterIndex = ++letterIndexCopy;
+                if (newLetterIndex <= 'H' && newNumberIndex <= 8)
+                {
+                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                }
             }
             // If second player, => black => at the top => A8, etc.
             else
@@ -554,20 +567,33 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
                 int newNumberIndex;
                 if (currentPositionData.IsStartingPosition)
                 {
-                    newNumberIndex = numberIndex - 2 >= 1 ? numberIndex - 2 : 1;
-                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                    newNumberIndex = numberIndex - 2;
+                    if (newNumberIndex >= 1)
+                    {
+                        HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                    }
                 }
                 // Move Forward
-                newNumberIndex = numberIndex - 1 >= 1 ? numberIndex - 1 : 0;
-                HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                newNumberIndex = numberIndex - 1;
+                if (newNumberIndex >= 1)
+                {
+                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{letterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                }
 
                 //Move diagonaly
                 var letterIndexCopy = letterIndex;
-                var newLetterIndex = --letterIndexCopy >= 'A' ? letterIndexCopy : 'A';
-                HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                var newLetterIndex = --letterIndexCopy;
+                if (newLetterIndex >= 'A' && newNumberIndex >= 1)
+                {
+                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                }
+
                 letterIndexCopy = letterIndex;
-                newLetterIndex = ++letterIndexCopy <= 'H' ? letterIndexCopy : 'H';
-                HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                newLetterIndex = ++letterIndexCopy;
+                if (newLetterIndex <= 'H' && newNumberIndex >= 1)
+                {
+                    HandlePawnMove($"{letterIndex}{numberIndex}", $"{newLetterIndex}{newNumberIndex}", possibleMoves, currentPositionData);
+                }
             }
 
             return possibleMoves;

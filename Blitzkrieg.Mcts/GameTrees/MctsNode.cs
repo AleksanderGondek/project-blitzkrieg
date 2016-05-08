@@ -41,6 +41,10 @@ namespace Blitzkrieg.Mcts.GameTrees
         [JsonProperty]
         public string OriginAction { get; set; }
 
+        [JsonProperty]
+        public IList<string> ActionsNotTaken { get; set; }
+
+        [JsonProperty]
         public IGameState GameState { get; set; }
 
         public void Initialize(string idOverride = null, string typeOverride = null, string versionOverride = null, 
@@ -51,11 +55,12 @@ namespace Blitzkrieg.Mcts.GameTrees
             GameStateVersionCompatibility = compatibilityOverride ?? "1.0.0";
             MctsNamespace = namespaceOverride ?? "blitzkrieg-mcts-node";
             HashType = hashTypeOverride ?? "SHA256";
-            Id = idOverride ?? $"{MctsNamespace}:{Type}:{Version}:{new Guid().ToString("N")}";
+            Id = idOverride ?? $"{MctsNamespace}:{Type}:{Version}:{Guid.NewGuid().ToString("N")}";
 
             Value = 0.0m;
             Visits = 0;
 
+            Children = new List<string>();
             GameState = gameStateOverride;
         }
 
@@ -94,11 +99,11 @@ namespace Blitzkrieg.Mcts.GameTrees
             {
                 listOfIssues.Add($"Invalid MctsNode:IMctsNode HashType - {HashType} was given, non-empty string was expected.");
             }
-            if (string.IsNullOrEmpty(HashType))
+            if (Children == null)
             {
-                listOfIssues.Add($"Invalid MctsNode:IMctsNode HashType - {HashType} was given, non-empty string was expected.");
+                listOfIssues.Add($"Invalid MctsNode:IMctsNode Children - is null, IList<string> was expected.");
             }
-            if (!Regex.IsMatch(Id, @"\b(\w+):(\w+):(\w+):(\w+)\b"))
+            if (!Regex.IsMatch(Id, @"[^:]\b(\S+):(\S+):(\S+)\b"))
             {
                 listOfIssues.Add($"Invalid MctsNode:IMctsNode Id - {Id} was given, string in lorem:ipsum:Ipsum1:loreM format was expected.");
             }

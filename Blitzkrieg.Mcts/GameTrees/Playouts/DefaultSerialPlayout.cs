@@ -12,6 +12,7 @@ namespace Blitzkrieg.Mcts.GameTrees.Playouts
         public U GameState { get; set; }
         public IMctsNodeHandler<T, U> NodeHandler { get; set; } 
 
+        private static Random _random = new Random((int)DateTime.UtcNow.Ticks);
         private int _iterationsCount = 0;
         private T _currentNode;
 
@@ -30,13 +31,14 @@ namespace Blitzkrieg.Mcts.GameTrees.Playouts
             }
 
             var rootChildWithMostVisits = NodeHandler.GetChildNodeWithMostVisits(_currentNode);
+            NodeHandler.DataBroker.CleanAll();
             return rootChildWithMostVisits != null ? rootChildWithMostVisits.OriginAction : string.Empty;
         }
 
         private void SelectionStep()
         {
             // Do while currentNode has no available actions (all were performed) and currentNode has chilrden to select from
-            while (!_currentNode.GameState.AvailableActions().Any() && _currentNode.Children.Any())
+            while (!_currentNode.ActionsNotTaken.Any() && _currentNode.Children.Any())
             {
                 _currentNode = NodeHandler.SelectChildNode(_currentNode);
             }
@@ -44,33 +46,30 @@ namespace Blitzkrieg.Mcts.GameTrees.Playouts
 
         private void ExpansionStep()
         {
-            if (!_currentNode.GameState.AvailableActions().Any())
+            if (!_currentNode.ActionsNotTaken.Any())
             {
                 return;
             }
 
-            var actionsAvailable = _currentNode.GameState.AvailableActions();
+            var actionsAvailable = _currentNode.ActionsNotTaken;
             //TODO: later switch to more random new RNGCryptoServiceProvider
-            var randomIndex = new Random(new DateTime().Millisecond).Next(0, actionsAvailable.Count);
+            var randomIndex = _random.Next(0, actionsAvailable.Count);
             var randomAction = actionsAvailable.ElementAt(randomIndex);
 
             // New state
             _currentNode = NodeHandler.NewNodeFromPerformingAction(_currentNode, randomAction);
-
         }
 
         private void SimulationStep()
         {
             var simulationsCount = 0;
-            var actionsAvailable = _currentNode.GameState.AvailableActions();
-            while (!actionsAvailable.Any())
+            while (_currentNode.ActionsNotTaken.Any())
             {
-                var randomIndex = new Random(new DateTime().Millisecond).Next(0, actionsAvailable.Count);
-                var randomAction = actionsAvailable.ElementAt(randomIndex);
+                var randomIndex = new Random(new DateTime().Millisecond).Next(0, _currentNode.ActionsNotTaken.Count);
+                var randomAction = _currentNode.ActionsNotTaken.ElementAt(randomIndex);
 
                 // New state
                 _currentNode = NodeHandler.NewNodeFromPerformingAction(_currentNode, randomAction);
-                actionsAvailable = _currentNode.GameState.AvailableActions();
 
                 simulationsCount++;
                 if (simulationsCount > MaxiumumSimulations)

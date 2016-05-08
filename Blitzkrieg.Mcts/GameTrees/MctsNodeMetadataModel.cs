@@ -34,6 +34,8 @@ namespace Blitzkrieg.Mcts.GameTrees
 
         [JsonProperty]
         public string OriginAction { get; set; }
+        [JsonProperty]
+        public IList<string> ActionsNotTaken { get; set; }
 
         [JsonProperty]
         public IGameState GameState { get; set; }

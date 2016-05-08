@@ -2,7 +2,6 @@
 using System.Collections.Concurrent;
 using System.Linq;
 using Blitzkrieg.Mcts.GameTrees;
-using Blitzkrieg.Mcts.GameTrees.Factories;
 using Blitzkrieg.Mcts.Persistence.Contracts;
 
 namespace Blitzkrieg.Mcts.Persistence.Repositories
@@ -34,7 +33,8 @@ namespace Blitzkrieg.Mcts.Persistence.Repositories
         public bool Update(T entity)
         {
             var previousValue = Get(entity.Id);
-            return previousValue != null && InMemoryStore.TryUpdate(entity.Id, entity, previousValue);
+            var update = InMemoryStore.TryUpdate(entity.Id, entity, previousValue);
+            return previousValue != null && update;
         }
 
         public T Get(string entityId)
@@ -47,6 +47,11 @@ namespace Blitzkrieg.Mcts.Persistence.Repositories
         public IQueryable<T> AllEntities()
         {
             return InMemoryStore.Values.AsQueryable();
+        }
+
+        public void CleanAll()
+        {
+            InMemoryStore.Clear();
         }
     }
 }

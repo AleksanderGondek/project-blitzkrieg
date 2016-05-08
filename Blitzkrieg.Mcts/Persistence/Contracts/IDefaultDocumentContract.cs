@@ -12,5 +12,7 @@ namespace Blitzkrieg.Mcts.Persistence.Contracts
         bool Update(T entity);
         T Get(string entityId);
         IQueryable<T> AllEntities();
+
+        void CleanAll();
     }
 }

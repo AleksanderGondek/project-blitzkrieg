@@ -24,7 +24,9 @@ namespace Blitzkrieg.Mcts.GameTrees
 
         // Action from which this node was created
         string OriginAction { get; set; }
+        IList<string> ActionsNotTaken { get; set; }
 
+        //TODO: This may be an overkill in terms of data size
         IGameState GameState { get; set; }
 
         void Initialize(string idOverride = null, string typeOverride = null, string versionOverride = null,

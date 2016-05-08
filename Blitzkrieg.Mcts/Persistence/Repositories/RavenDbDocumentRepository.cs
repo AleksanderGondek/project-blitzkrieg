@@ -41,5 +41,10 @@ namespace Blitzkrieg.Mcts.Persistence.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public void CleanAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

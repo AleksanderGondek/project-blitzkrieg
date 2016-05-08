@@ -90,6 +90,20 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
             var enemyPlayerActions = GetAllActionsForPlayer(AllPlayers.Single(x => x != GetCurrentPlayer()));
             var curremtPlayerActions = GetAllActionsForPlayer(AllPlayers.Single(x => x == GetCurrentPlayer()));
 
+            //TODO: This is tmp fix
+            if (
+                !_gameBoard.Any(
+                    x => x.Value.ChessPiece == BoardDefinitions.ChessPieces.King && x.Value.Owner == GetCurrentPlayer()))
+            {
+                return new List<string>();
+            }
+
+            //If There are only two kings left
+            if (_gameBoard.Count(x => x.Value.ChessPiece == BoardDefinitions.ChessPieces.King) == _gameBoard.Count)
+            {
+                return new List<string>();
+            }
+
             // Extract all positions that enemy may move to next turn
             var allEnemyMoves = enemyPlayerActions.Select(x => x.Split(',').Skip(1).First()).ToList();
             // Get All possible actions for current players King
@@ -169,7 +183,7 @@ namespace Blitzkrieg.Mcts.GameStates.Examples.Chess
             }
 
             _gameBoard.Add(targetCooridnates, startingFieldData);
-            LastPlayer = AllPlayers.Single(x => x != GetCurrentPlayer());
+            LastPlayer = GetCurrentPlayer();
         }
   
         public string ToJson()
