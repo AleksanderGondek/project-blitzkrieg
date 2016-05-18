@@ -7,7 +7,7 @@ Project Blitzkrieg - Scalable game decision engine
  [![Stories in progress](https://badge.waffle.io/AleksanderGondek/project-blitzkrieg.png?label=In%20Progress&title=In progress)](https://waffle.io/AleksanderGondek/project-blitzkrieg)
  [![Issue Stats](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg/badge/pr)](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg)
  [![Issue Stats](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg/badge/issue)](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg)
- [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=master)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg)
+ [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=develop)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg)
 
 One could think of Blitzkrieg project as “_Artificial Intelligence for games As a Service_” – the intention is to create ease to use, working out-of-the-box solution that will predict best possible moves for any game it is provided with. Moreover, it will be written with scalability in mind, so that it could adjust to the quantity of requests it is receiving or increase its prediction accuracy on the fly, without any effort.
 
@@ -21,19 +21,16 @@ Currently the project development has just begun.
 
 Branches description
 =======
-During the development of this project there are going to be three main branches:
+During the development of this project [**git-flow**](http://nvie.com/posts/a-successful-git-branching-model/) approach is being used.
+The summary of important branches and concepts is described below:
 
 * __main__ - this branch signifies "production-ready" code or while before first release, code that has already been checked and is working as intended.
-* __main-development__ - this branch signifies code that is not ready for "production" usage, or was not yet confirmed to be working as expected. Before first release this is going to be main working branch.
+* __develop__ - this branch signifies code that is not ready for "production" usage, or was not yet confirmed to be working as expected. Before first release this is going to be main working branch.
+* __Feature branches__ (prefixed with '_feature_') - Each non-trivial feature is going to be developed on a separated branch, and after being finished it is going to be merged into develop.
 * __gh-pages__ - dedicated branch for hosting web pages. Here all important documentation will be written.
 
 Technology stack
 =======
-
-
-> Notice!
-> Because of how VS2015 is not compatible yet with latest dotnet-core CLI, whole development is currently performed under default .NET 4.5.0 stack and then will be ported to dotnet-core (meaning as soon as V2015 will be compatible).
->
 
 This project is proudly developed using [.NET Core](https://dotnet.github.io/) and thus is available for use across platforms (_Windows_ and _Linux_ alike). Hopefully this makes using this project in cloud environment even easier. It is also heavily using [Orleans Framework](http://dotnet.github.io/orleans/), which greatly helps in distributing and parallelizing the code.
 
