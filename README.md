@@ -7,7 +7,12 @@ Project Blitzkrieg - Scalable game decision engine
  [![Stories in progress](https://badge.waffle.io/AleksanderGondek/project-blitzkrieg.png?label=In%20Progress&title=In progress)](https://waffle.io/AleksanderGondek/project-blitzkrieg)
  [![Issue Stats](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg/badge/pr)](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg)
  [![Issue Stats](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg/badge/issue)](http://issuestats.com/github/AleksanderGondek/project-blitzkrieg)
- [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=develop)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg)
+
+| Branch | CI Status |
+| --- | --- |
+| Master | [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=master)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg) |
+| Develop | [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=develop)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg) |
+| Develop .NET Core | [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=develop-net-core)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg) |
 
 One could think of Blitzkrieg project as “_Artificial Intelligence for games As a Service_” – the intention is to create ease to use, working out-of-the-box solution that will predict best possible moves for any game it is provided with. Moreover, it will be written with scalability in mind, so that it could adjust to the quantity of requests it is receiving or increase its prediction accuracy on the fly, without any effort.
 
@@ -32,7 +37,8 @@ The summary of important branches and concepts is described below:
 Technology stack
 =======
 
-This project is proudly developed using [.NET Core](https://dotnet.github.io/) and thus is available for use across platforms (_Windows_ and _Linux_ alike). Hopefully this makes using this project in cloud environment even easier. It is also heavily using [Orleans Framework](http://dotnet.github.io/orleans/), which greatly helps in distributing and parallelizing the code.
+This project is proudly developed using [.NET Framework 4.6.2](https://dotnet.github.io/https://msdn.microsoft.com/en-us/library/bb822049(v=vs.110).aspx). It is also heavily based upon [Orleans Framework](http://dotnet.github.io/orleans/), which greatly helps in distributing and parallelizing the code.
+Initially the project was intended to use .NET Core however lack of support from Orleans put end to the though - maybe, once it will be supported the project will be moved.
 
 License
 =======

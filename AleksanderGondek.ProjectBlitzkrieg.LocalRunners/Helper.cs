@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
+
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess.Models;
 
-namespace AleksanderGondek.ProjectBlitzkrieg.ConsoleRunner
+using Newtonsoft.Json;
+
+namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners
 {
     public class HelperModel
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Factories;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees;
@@ -8,7 +9,7 @@ using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Handlers;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.Persistence.Repositories;
 
-namespace AleksanderGondek.ProjectBlitzkrieg.ConsoleRunner
+namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners
 {
     public class Program
     {
