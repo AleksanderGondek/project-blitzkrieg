@@ -34,12 +34,56 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.0.0\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Orleans, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.Core.1.2.3\lib\net451\Orleans.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansCodeGenerator, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.OrleansCodeGenerator.1.2.3\lib\net451\OrleansCodeGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansCounterControl, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.CounterControl.1.2.3\lib\net451\OrleansCounterControl.exe</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansDependencyInjection, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.OrleansRuntime.1.2.3\lib\net451\OrleansDependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansHost, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.OrleansHost.1.2.3\lib\net451\OrleansHost.exe</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansProviders, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.OrleansProviders.1.2.3\lib\net451\OrleansProviders.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrleansRuntime, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Orleans.OrleansRuntime.1.2.3\lib\net451\OrleansRuntime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.1.36.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.36\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Reflection.Metadata, Version=1.0.21.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.0.21\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper.cs" />
+    <Compile Include="Orleans\OrleansHostWrapper.cs" />
+    <Compile Include="Orleans\OrleansSilo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,10 +103,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces\AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.csproj">
+      <Project>{25940661-6abb-4e0a-b550-d9f08ebb6353}</Project>
+      <Name>AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AleksanderGondek.ProjectBlitzkrieg.Grains\AleksanderGondek.ProjectBlitzkrieg.Grains.csproj">
+      <Project>{99414f14-ed04-4cde-9f60-d6152902ccc6}</Project>
+      <Name>AleksanderGondek.ProjectBlitzkrieg.Grains</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AleksanderGondek.ProjectBlitzkrieg.Mcts\AleksanderGondek.ProjectBlitzkrieg.Mcts.csproj">
       <Project>{a48c9a6f-6b7c-4caa-ae62-02e8742bab64}</Project>
       <Name>AleksanderGondek.ProjectBlitzkrieg.Mcts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

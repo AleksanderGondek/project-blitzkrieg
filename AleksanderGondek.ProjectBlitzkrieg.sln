@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.LocalRunners", "AleksanderGondek.ProjectBlitzkrieg.LocalRunners\AleksanderGondek.ProjectBlitzkrieg.LocalRunners.csproj", "{73E8D0DB-A77A-485E-8B6A-AA05D367074F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces", "AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces\AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.csproj", "{25940661-6ABB-4E0A-B550-D9F08EBB6353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.Grains", "AleksanderGondek.ProjectBlitzkrieg.Grains\AleksanderGondek.ProjectBlitzkrieg.Grains.csproj", "{99414F14-ED04-4CDE-9F60-D6152902CCC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25940661-6ABB-4E0A-B550-D9F08EBB6353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25940661-6ABB-4E0A-B550-D9F08EBB6353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25940661-6ABB-4E0A-B550-D9F08EBB6353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25940661-6ABB-4E0A-B550-D9F08EBB6353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99414F14-ED04-4CDE-9F60-D6152902CCC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99414F14-ED04-4CDE-9F60-D6152902CCC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99414F14-ED04-4CDE-9F60-D6152902CCC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99414F14-ED04-4CDE-9F60-D6152902CCC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
