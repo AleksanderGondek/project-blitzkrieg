@@ -1,25 +1,4 @@
 sudo: required
 dist: trusty
-# Prepare for .NET Core installation
-before_install:
-    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-    - sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    - sudo apt-get update
-# Install .NET Core
-install:
-    - sudo apt-get -y install dotnet-dev-1.0.0-preview1-002702
-# # Make sure it is working
-before_script:
-    - mkdir test
-    # First time we run this it crashes so run here for the first time
-    - cd test
-    - dotnet -v 1>/dev/null 2>/dev/null
-    - dotnet new
-    - dotnet restore
-    - dotnet build
-    - cd ..
-    - rm -rf test
-script:
-    - cd src/AleksanderGondek.ProjectBlitzkrieg.Mcts
-    - dotnet restore
-    - dotnet build
+language: csharp
+solution: AleksanderGondek.ProjectBlitzkrieg.sln

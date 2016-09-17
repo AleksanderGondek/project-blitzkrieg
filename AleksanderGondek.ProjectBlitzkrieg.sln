@@ -1,20 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D22447E-189E-4007-9E49-0EDB1E87C038}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.Mcts", "AleksanderGondek.ProjectBlitzkrieg.Mcts\AleksanderGondek.ProjectBlitzkrieg.Mcts.csproj", "{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{829EDA6D-65BB-4A4D-B91E-EAF0DA9932A4}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AleksanderGondek.ProjectBlitzkrieg.Mcts", "src\AleksanderGondek.ProjectBlitzkrieg.Mcts\AleksanderGondek.ProjectBlitzkrieg.Mcts.xproj", "{883215F6-9F4C-4477-8430-E1858B82640C}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AleksanderGondek.ProjectBlitzkrieg.Mcts.Tests", "src\AleksanderGondek.ProjectBlitzkrieg.Mcts.Tests\AleksanderGondek.ProjectBlitzkrieg.Mcts.Tests.xproj", "{4F81D6E4-6464-41FD-BCA2-2B728B66CAD5}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AleksanderGondek.ProjectBlitzkrieg.ConsoleRunner", "src\AleksanderGondek.ProjectBlitzkrieg.ConsoleRunner\AleksanderGondek.ProjectBlitzkrieg.ConsoleRunner.xproj", "{A106F74F-8187-43FF-A08B-620EEF7B77DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.LocalRunners", "AleksanderGondek.ProjectBlitzkrieg.LocalRunners\AleksanderGondek.ProjectBlitzkrieg.LocalRunners.csproj", "{73E8D0DB-A77A-485E-8B6A-AA05D367074F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,25 +13,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{883215F6-9F4C-4477-8430-E1858B82640C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{883215F6-9F4C-4477-8430-E1858B82640C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{883215F6-9F4C-4477-8430-E1858B82640C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{883215F6-9F4C-4477-8430-E1858B82640C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F81D6E4-6464-41FD-BCA2-2B728B66CAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F81D6E4-6464-41FD-BCA2-2B728B66CAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F81D6E4-6464-41FD-BCA2-2B728B66CAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F81D6E4-6464-41FD-BCA2-2B728B66CAD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A106F74F-8187-43FF-A08B-620EEF7B77DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A106F74F-8187-43FF-A08B-620EEF7B77DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A106F74F-8187-43FF-A08B-620EEF7B77DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A106F74F-8187-43FF-A08B-620EEF7B77DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{883215F6-9F4C-4477-8430-E1858B82640C} = {0D22447E-189E-4007-9E49-0EDB1E87C038}
-		{4F81D6E4-6464-41FD-BCA2-2B728B66CAD5} = {0D22447E-189E-4007-9E49-0EDB1E87C038}
-		{A106F74F-8187-43FF-A08B-620EEF7B77DF} = {0D22447E-189E-4007-9E49-0EDB1E87C038}
 	EndGlobalSection
 EndGlobal
