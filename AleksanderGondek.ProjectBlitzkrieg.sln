@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.Mcts", "AleksanderGondek.ProjectBlitzkrieg.Mcts\AleksanderGondek.ProjectBlitzkrieg.Mcts.csproj", "{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AleksanderGondek.ProjectBlitzkrieg.LocalRunners", "AleksanderGondek.ProjectBlitzkrieg.LocalRunners\AleksanderGondek.ProjectBlitzkrieg.LocalRunners.csproj", "{73E8D0DB-A77A-485E-8B6A-AA05D367074F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48C9A6F-6B7C-4CAA-AE62-02E8742BAB64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E8D0DB-A77A-485E-8B6A-AA05D367074F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
