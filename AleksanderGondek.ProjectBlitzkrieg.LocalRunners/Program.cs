@@ -53,7 +53,8 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners
                     MaxiumumSimulations = 40
                 };
 
-                var action = playout.GetNextMove();
+                var possibleMovesWithScores = playout.GetNextMove();
+                var action = possibleMovesWithScores.First(x => x.Value == possibleMovesWithScores.Values.Max()).Key;
                 newGameState.PerformAction(action);
 
                 Console.WriteLine($"After taking a move({action}):");

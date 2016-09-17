@@ -1,4 +1,5 @@
-﻿using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates;
+﻿using System.Collections.Generic;
+using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Handlers;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
@@ -10,6 +11,6 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
         U GameState { get; set; }
         IMctsNodeHandler<T, U> NodeHandler { get; set; }
 
-        string GetNextMove();
+        IDictionary<string, int> GetNextMove();
     }
 }

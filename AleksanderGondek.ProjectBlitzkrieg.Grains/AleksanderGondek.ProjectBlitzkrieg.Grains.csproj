@@ -51,9 +51,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Brokers\MctsBroker.cs" />
     <Compile Include="HelloWorldGrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\orleans.codegen.cs" />
+    <Compile Include="Workers\MctsSerialWithUctWoker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -64,7 +66,12 @@
       <Project>{25940661-6abb-4e0a-b550-d9f08ebb6353}</Project>
       <Name>AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AleksanderGondek.ProjectBlitzkrieg.Mcts\AleksanderGondek.ProjectBlitzkrieg.Mcts.csproj">
+      <Project>{a48c9a6f-6b7c-4caa-ae62-02e8742bab64}</Project>
+      <Name>AleksanderGondek.ProjectBlitzkrieg.Mcts</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Orleans.OrleansCodeGenerator.Build.1.2.3\build\Microsoft.Orleans.OrleansCodeGenerator.Build.targets" Condition="Exists('..\packages\Microsoft.Orleans.OrleansCodeGenerator.Build.1.2.3\build\Microsoft.Orleans.OrleansCodeGenerator.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
