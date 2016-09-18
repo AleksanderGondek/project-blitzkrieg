@@ -37,7 +37,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans
             var request = new ProcessingRequest()
             {
                 GameState = newGameState.ToJson(),
-                ExectutionType = AvailableExecutionTypes.MctsRootParallelizationWithUct,
+                ExectutionType = AvailableExecutionTypes.MctsSharedTreeParallelizationWithUtc,
                 MaximumIterations = 40,
                 MaxiumumSimulations = 40,
                 Workers = 10

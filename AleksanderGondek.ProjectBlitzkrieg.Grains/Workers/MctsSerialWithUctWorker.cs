@@ -13,7 +13,7 @@ using Orleans;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Workers
 {
-    public class MctsSerialWithUctWoker : Grain, IMctsSerialWithUtcWorker
+    public class MctsSerialWithUctWorker : Grain, IMctsSerialWithUtcWorker
     {
         //TODO: This should be generic
         private IGameStateFactory<ChessGameState> _gameStateFactory;

@@ -57,6 +57,7 @@
     <Compile Include="GameTrees\Exceptions\MctsNodeNotValid.cs" />
     <Compile Include="GameTrees\Factories\IMctsNodeFactory.cs" />
     <Compile Include="GameTrees\Factories\MctsNodeFactory.cs" />
+    <Compile Include="GameTrees\Factories\MctsNodeFactoryForSharedTree.cs" />
     <Compile Include="GameTrees\Handlers\IMctsNodeHandler.cs" />
     <Compile Include="GameTrees\Handlers\MctsWithUctNodeHandler.cs" />
     <Compile Include="GameTrees\IMctsNode.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="GameTrees\MctsNodeMetadataModel.cs" />
     <Compile Include="GameTrees\Playouts\DefaultSerialPlayout.cs" />
     <Compile Include="GameTrees\Playouts\IMctsPlayout.cs" />
+    <Compile Include="GameTrees\Playouts\SharedTreePlayout.cs" />
     <Compile Include="GameTrees\Utilities\NodeComparators.cs" />
     <Compile Include="Persistence\Contracts\IDefaultDocumentContract.cs" />
     <Compile Include="Persistence\Repositories\InMemoryDocumentRepository.cs" />

@@ -6,15 +6,14 @@ using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Handlers;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 {
-    public class DefaultSerialPlayout<T,U> : IMctsPlayout<T, U> where T : class, IMctsNode, new() where U : class, IGameState, new()
+    public class SharedTreePlayout<T, U> : IMctsPlayout<T, U> where T : class, IMctsNode, new() where U : class, IGameState, new()
     {
         public int MaximumIterations { get; set; }
         public int MaxiumumSimulations { get; set; }
         public U GameState { get; set; }
-        public IMctsNodeHandler<T, U> NodeHandler { get; set; } 
+        public IMctsNodeHandler<T, U> NodeHandler { get; set; }
 
         private static Random _random = new Random((int)DateTime.UtcNow.Ticks);
-        private IList<string> _thisPlayoutNodesIds = new List<string>();
         private int _iterationsCount = 0;
         private T _currentNode;
 
@@ -31,15 +30,8 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 
                 _iterationsCount++;
             }
-            
+
             var possibleMovesWithScore = NodeHandler.GetPossibleMovesWithScore(_currentNode);
-
-            //Cleanup
-            foreach (var id in _thisPlayoutNodesIds)
-            {
-                NodeHandler.DataBroker.Delete(id);
-            }
-
             return possibleMovesWithScore;
         }
 
@@ -66,7 +58,6 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 
             // New state
             _currentNode = NodeHandler.NewNodeFromPerformingAction(_currentNode, randomAction);
-            _thisPlayoutNodesIds.Add(_currentNode.Id);
         }
 
         private void SimulationStep()
@@ -79,7 +70,6 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 
                 // New state
                 _currentNode = NodeHandler.NewNodeFromPerformingAction(_currentNode, randomAction);
-                _thisPlayoutNodesIds.Add(_currentNode.Id);
 
                 simulationsCount++;
                 if (simulationsCount > MaxiumumSimulations)

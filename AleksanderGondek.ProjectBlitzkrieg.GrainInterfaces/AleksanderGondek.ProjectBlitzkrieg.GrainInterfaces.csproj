@@ -59,6 +59,8 @@
     <Compile Include="Properties\orleans.codegen.cs" />
     <Compile Include="Workers\IMctsRootParallelizationWithUtcWorker.cs" />
     <Compile Include="Workers\IMctsSerialWithUtcWorker.cs" />
+    <Compile Include="Workers\IMctsSharedTreeWithUctMasterWorker.cs" />
+    <Compile Include="Workers\IMctsSharedTreeWithUctWorker.cs" />
     <Compile Include="Workers\IMctsWorker.cs" />
   </ItemGroup>
   <ItemGroup>
