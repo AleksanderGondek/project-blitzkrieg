@@ -1,3 +1,9 @@
+## Orleans Webiste
+AleksanderGondek.ProjectBlitzkrieg.Website/bower_components/*
+AleksanderGondek.ProjectBlitzkrieg.Website/bower_components/**
+AleksanderGondek.ProjectBlitzkrieg.Website/node_modules/*
+AleksanderGondek.ProjectBlitzkrieg.Website/node_modules/**
+
 ## Orelans files
 AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces/error.txt
 

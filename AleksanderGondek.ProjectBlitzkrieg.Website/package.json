@@ -1,0 +1,26 @@
+{
+  "name": "aleksandergondek.projectblitzkrieg.website",
+  "version": "1.0.0",
+  "description": "Website for previewing usecases of project blitzkrieg",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleksanderGondek/project-blitzkrieg.git"
+  },
+  "author": "Aleksander Gondek",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/AleksanderGondek/project-blitzkrieg/issues"
+  },
+  "homepage": "https://github.com/AleksanderGondek/project-blitzkrieg#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-clean": "^0.3.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-util": "^3.0.7"
+  }
+}
