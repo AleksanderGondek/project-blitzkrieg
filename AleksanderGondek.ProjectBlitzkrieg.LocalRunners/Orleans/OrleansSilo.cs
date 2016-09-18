@@ -36,7 +36,11 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans
 
             var request = new ProcessingRequest()
             {
-                GameState = newGameState.ToJson()
+                GameState = newGameState.ToJson(),
+                ExectutionType = AvailableExecutionTypes.MctsRootParallelizationWithUct,
+                MaximumIterations = 40,
+                MaxiumumSimulations = 40,
+                Workers = 10
             };
 
             Console.WriteLine("\n\n{0}\n\n", brokerTest.GetNextMove(request).Result);

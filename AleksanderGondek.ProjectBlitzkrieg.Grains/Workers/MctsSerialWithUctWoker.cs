@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Contracts;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Workers;
@@ -13,7 +13,7 @@ using Orleans;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Workers
 {
-    public class MctsSerialWithUctWoker : Grain, IMctsWorker
+    public class MctsSerialWithUctWoker : Grain, IMctsSerialWithUtcWorker
     {
         //TODO: This should be generic
         private IGameStateFactory<ChessGameState> _gameStateFactory;
@@ -45,23 +45,17 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Workers
             }
         }
 
-        public Task<string> GetNextMove(ProcessingRequest request)
+        public async Task<IDictionary<string, int>> GetNextMove(ProcessingRequest request)
         {
             Initialize();
-
-            var gameState = Newtonsoft.Json.JsonConvert.DeserializeObject<ChessGameState>(request.GameState);
-
             var playout = new DefaultSerialPlayout<MctsNode, ChessGameState>
             {
                 NodeHandler = _mctsNodeHandler,
-                GameState = gameState,
-                MaximumIterations = 40,
-                MaxiumumSimulations = 40
+                GameState = Newtonsoft.Json.JsonConvert.DeserializeObject<ChessGameState>(request.GameState),
+                MaximumIterations = request.MaximumIterations,
+                MaxiumumSimulations = request.MaxiumumSimulations
             };
-
-            var possibleMovesWithScores = playout.GetNextMove();
-            // Yield move that was most frequently taken
-            return Task.FromResult(possibleMovesWithScores.Single(x => x.Value == possibleMovesWithScores.Values.Max()).Key);
+            return playout.GetNextMove();
         }
     }
 }

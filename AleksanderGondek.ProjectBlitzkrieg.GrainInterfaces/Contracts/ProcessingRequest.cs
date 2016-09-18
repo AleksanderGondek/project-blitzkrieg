@@ -6,5 +6,9 @@ namespace AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Contracts
     public class ProcessingRequest
     {
         public string GameState;
+        public string ExectutionType;
+        public int Workers;
+        public int MaximumIterations;
+        public int MaxiumumSimulations;
     }
 }
