@@ -1,0 +1,19 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Play Chess";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row marketing" ng-app="blitzkrieg" ng-controller="chessGameCtrl">
+    <div class="row text-center">
+        <nywton-chessboard board="boardA" data-draggable="true"></nywton-chessboard>
+    </div>
+    <br/>
+    <div class="row text-center">
+        <button class="btn btn-default" ng-click="startGame()">
+            {{gameInterval === null ? 'Start' : 'Stop'}}
+        </button>
+    </div>
+</div>
+

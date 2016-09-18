@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
-using System.Web.Http;
+using Orleans;
+using Orleans.Runtime;
+using Orleans.Runtime.Configuration;
+using GlobalConfiguration = System.Web.Http.GlobalConfiguration;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Website
 {
@@ -14,10 +14,37 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Website
     {
         void Application_Start(object sender, EventArgs e)
         {
+            InitializeOrleans();
+
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        private void InitializeOrleans()
+        {
+            var errorCounter = 0;
+            while (errorCounter <= 10)
+            {
+                try
+                {
+                    GrainClient.Initialize(ClientConfiguration.LocalhostSilo());
+                    return;
+                }
+                catch (SiloUnavailableException)
+                {
+                    errorCounter++;
+                }
+                catch (HttpException)
+                {
+                    errorCounter++;
+                }
+
+                Thread.Sleep(15000); // Sleep for 15 secs
+            }
+
+            throw new Exception("Too many unsuccessfull attempts to setup Orleans client!");
         }
     }
 }

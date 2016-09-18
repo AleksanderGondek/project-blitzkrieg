@@ -30,6 +30,10 @@
   "dependencies": {
     "bootstrap": "3.3.6",
     "bootswatch": "3.3.6+1",
-    "font-awesome": "fontawesome#^4.5.0"
+    "font-awesome": "fontawesome#^4.5.0",
+    "angular": "1.5.5",
+    "angular-chessboard": "theborakompanioni/angular-chessboard#^0.0.7",
+    "chessboardjs": "chessboard.js#^0.3.2",
+    "underscore": "^1.8.3"
   }
 }

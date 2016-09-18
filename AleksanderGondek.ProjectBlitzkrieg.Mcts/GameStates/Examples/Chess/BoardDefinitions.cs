@@ -37,7 +37,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess
                 {"F2", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[0], IsStartingPosition = true }},
                 {"G2", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[0], IsStartingPosition = true }},
                 {"H2", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[0], IsStartingPosition = true }},
-                {"A8", new ChessField {ChessPiece = ChessPieces.Rook, Owner = players[0], IsStartingPosition = true }},
+                {"A8", new ChessField {ChessPiece = ChessPieces.Rook, Owner = players[1], IsStartingPosition = true }},
                 {"B8", new ChessField {ChessPiece = ChessPieces.Knight, Owner = players[1], IsStartingPosition = true }},
                 {"C8", new ChessField {ChessPiece = ChessPieces.Bishop, Owner = players[1], IsStartingPosition = true }},
                 {"D8", new ChessField {ChessPiece = ChessPieces.Queen, Owner = players[1], IsStartingPosition = true }},

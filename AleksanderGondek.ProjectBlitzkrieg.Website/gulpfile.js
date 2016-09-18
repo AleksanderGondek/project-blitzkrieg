@@ -1,4 +1,5 @@
-﻿var gulp = require("gulp");
+﻿/// <binding BeforeBuild='copy-assets' Clean='clean-assets' />
+var gulp = require("gulp");
 var bower = require("gulp-bower");
 var clean = require("gulp-clean");
 var gutil = require("gulp-util");
@@ -49,6 +50,38 @@ gulp.task("copy-jquery", function () {
     gutil.log("Jquery files copied.");
 });
 
+gulp.task("copy-underscore", function () {
+    gutil.log("Coping underscore files..");
+    return gulp.src(BOWER_PACKAGES_DIRECTORY + "/underscore/*-min.*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/underscore/js"));
+    gutil.log("Underscore files copied.");
+});
+
+gulp.task("copy-chessboard-js", function () {
+    gutil.log("Coping chessboard-js files..");
+    gulp.src(BOWER_PACKAGES_DIRECTORY + "/chessboard.js/dist/js/*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/chessboard-js/js"));
+    gulp.src(BOWER_PACKAGES_DIRECTORY + "/chessboard.js/dist/img/**/*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/chessboard-js/img"));
+    return gulp.src(BOWER_PACKAGES_DIRECTORY + "/chessboard.js/dist/css/*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/chessboard-js/css"));
+    gutil.log("Chessboard-js files copied.");
+});
+
+gulp.task("copy-angular", function () {
+    gutil.log("Coping angular files..");
+    return gulp.src(BOWER_PACKAGES_DIRECTORY + "/angular/*.min.*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/angular/js"));
+    gutil.log("Angular files copied.");
+});
+
+gulp.task("copy-angular-chessboard", function () {
+    gutil.log("Coping angular-chessboard files..");
+    return gulp.src(BOWER_PACKAGES_DIRECTORY + "/angular-chessboard/dist/*.min.*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/angular-chessboard/js"));
+    gutil.log("Angular-Chessboard files copied.");
+});
+
 gulp.task("copy-custom-css", function () {
     gutil.log("Coping custom css files..");
     return gulp.src(SOURCE_FILES_DIRECTORY + "/css/*")
@@ -87,7 +120,8 @@ gulp.task("copy-custom-fonts", function () {
 
 gulp.task("copy-assets", ["copy-bootstrap", "copy-bootswatch-darkly",
     "copy-fontawesome", "copy-custom-css", "copy-custom-js", "copy-custom-img",
-    "copy-custom-fonts", "copy-jquery"]);
+    "copy-custom-fonts", "copy-jquery", "copy-underscore",
+    "copy-chessboard-js", "copy-angular", "copy-angular-chessboard"]);
 
 gulp.task("bower", function () {
     return bower();

@@ -32,6 +32,9 @@
 
     <!-- Syntax highlighting -->
     <link href="~/Content/blitzkrieg-website/css/highlight-syntax-monokai.css" rel="stylesheet">
+    
+    <!-- Chessboard-js -->
+    <link href="~/Content/chessboard-js/css/chessboard.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,7 +50,7 @@
             <nav>
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                    <li><a href="#">Play</a></li>
+                    <li><a href="@Url.Action("Play", "ChessGame")">Play</a></li>
                     <li><a href="https://github.com/AleksanderGondek/project-blitzkrieg" target="_blank"><i class="fa fa-github fa-lg"></i> Github</a></li>
                 </ul>
             </nav>
@@ -74,9 +77,24 @@
 
     <!-- Jquery -->
     <script src="~/Content/jquery/js/jquery.min.js"></script>
+    
+    <!-- Underscore -->
+    <script src="~/Content/underscore/js/underscore-min.js"></script>
 
-    <!-- Boostrap js -->
+    <!-- Chessboard-js -->
+    <script src="~/Content/chessboard-js/js/chessboard.js"></script>
+
+<!-- Boostrap js -->
     <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Angularjs -->
+    <script src="~/Content/angular/js/angular.min.js"></script>
+    
+    <!-- Angular Chessboard -->
+    <script src="~/Content/angular-chessboard/js/angular-chessboard.min.js"></script>
+    
+    <!-- Angular Blitzkrieg App -->
+    <script src="~/Content/blitzkrieg-website/js/blitzkrieg-chess-game.js"></script>
 
 </body>
 
