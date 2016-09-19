@@ -2,12 +2,14 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Brokers;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Contracts;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess;
+using AleksanderGondek.ProjectBlitzkrieg.Website.Models;
 using Orleans;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Website.Controllers
@@ -30,11 +32,16 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Website.Controllers
             return View();
         }
 
-        public async Task<ActionResult> GameTick()
+        [HttpPost]
+        public async Task<ActionResult> GameTick(GameTickRequestModel gameTickRequest)
         {
+            if (!IsGameTicketRequestValid(gameTickRequest))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Invalid gameTick request");
+            }
+
             var gameGuid = GetGameGuid();
             var gameState = GetGameState(gameGuid);
-
             if (!gameState.AvailableActions().Any())
             {
                 return Json(new { GameState = gameState.ToJson() }, JsonRequestBehavior.AllowGet);
@@ -43,10 +50,10 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Website.Controllers
             var request = new ProcessingRequest()
             {
                 GameState = gameState.ToJson(),
-                ExectutionType = AvailableExecutionTypes.MctsRootParallelizationWithUct,
-                MaximumIterations = 40,
-                MaxiumumSimulations = 40,
-                Workers = 10
+                ExectutionType = gameTickRequest.ExectutionType,
+                MaximumIterations = gameTickRequest.MaximumIterations,
+                MaxiumumSimulations = gameTickRequest.MaxiumumSimulations,
+                Workers = gameTickRequest.Workers
             };
 
             var brokerTest = GrainClient.GrainFactory.GetGrain<IMctsBroker>(gameGuid);
@@ -56,6 +63,14 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Website.Controllers
             _chessGameStates[gameGuid] = gameState;
 
             return Json(new {GameState = gameState.ToJson() }, JsonRequestBehavior.AllowGet);
+        }
+
+        private bool IsGameTicketRequestValid(GameTickRequestModel gameTickRequest)
+        {
+            return !string.IsNullOrEmpty(gameTickRequest?.ExectutionType) && 
+                gameTickRequest.MaximumIterations >= 0 && 
+                gameTickRequest.MaxiumumSimulations >= 0 && 
+                gameTickRequest.Workers >= 0;
         }
 
         private ChessGameState GetGameState(Guid gameId)

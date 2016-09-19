@@ -7,14 +7,31 @@ angular.module("blitzkrieg", ["nywton.chessboard"])
 }])
 .controller("chessGameCtrl",
     function ($scope, $http, $q, $interval) {
+        // Flags
         $scope.gameInterval = null;
         $scope.apiCallUnderway = false;
+        $scope.gameTickInterval = 10000; // 10 seconds
 
+        // Possible execution types
+        $scope.executionTypesAvailable = [
+            "Serial-With-Uct", "Root-Parallelization-With-Uct", "Mcts-Shared-Tree-With-Utc"
+        ];
+
+        // Request payload
+        $scope.gameTickRequest = {
+            ExectutionType: "Root-Parallelization-With-Uct",
+            Workers: 10,
+            MaximumIterations: 40,
+            MaxiumumSimulations: 40
+        }
         
+        // Chess Game Holder
         $scope.gameState = {
             raw: undefined,
             processed: {}
         };
+
+        // Helper methods
         $scope.getPlayerId = function(listOfPlayers, player) {
             // If player is first on the list of all players, assume its the white player
             if (listOfPlayers.indexOf(player) === 0) {
@@ -52,7 +69,6 @@ angular.module("blitzkrieg", ["nywton.chessboard"])
                 _.isUndefined($scope.gameState.raw["AllPlayers"])) {
                 return;
             }
-            
 
             $scope.gameState.processed = {};
             _.each($scope.gameState.raw.GameBoard,
@@ -65,7 +81,7 @@ angular.module("blitzkrieg", ["nywton.chessboard"])
         $scope.startGame = function() {
             if ($scope.gameInterval === null) {
                 $scope.gameTick();
-                $scope.gameInterval = $interval($scope.gameTick, 5000); //5 seconds
+                $scope.gameInterval = $interval($scope.gameTick, $scope.gameTickInterval);
            } else {
                $interval.cancel($scope.gameInterval);
                $scope.gameInterval = null;
@@ -77,8 +93,9 @@ angular.module("blitzkrieg", ["nywton.chessboard"])
 
             $scope.apiCallUnderway = true;
             $http({
-                    method: "GET",
+                    method: "POST",
                     url: "/ChessGame/GameTick",
+                    data: angular.toJson($scope.gameTickRequest),
                     timeout: 600000 // 10 minutes
                 })
                 .then(function(response) {
