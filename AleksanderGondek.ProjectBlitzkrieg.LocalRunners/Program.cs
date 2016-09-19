@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-
+using AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Factories;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees;
@@ -14,6 +14,12 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners
     public class Program
     {
         public static void Main(string[] args)
+        {
+            //TestMcts();
+            OrleansSilo.Start();   
+        }
+
+        public static void TestMcts()
         {
             // Serial Mcts example
             var chessGameStateFactory = new GameStateFactory<ChessGameState>();
@@ -47,7 +53,8 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners
                     MaxiumumSimulations = 40
                 };
 
-                var action = playout.GetNextMove();
+                var possibleMovesWithScores = playout.GetNextMove();
+                var action = possibleMovesWithScores.First(x => x.Value == possibleMovesWithScores.Values.Max()).Key;
                 newGameState.PerformAction(action);
 
                 Console.WriteLine($"After taking a move({action}):");

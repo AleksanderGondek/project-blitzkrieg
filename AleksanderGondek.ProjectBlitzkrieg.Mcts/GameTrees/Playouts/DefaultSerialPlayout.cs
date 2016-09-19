@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Handlers;
@@ -13,10 +14,11 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
         public IMctsNodeHandler<T, U> NodeHandler { get; set; } 
 
         private static Random _random = new Random((int)DateTime.UtcNow.Ticks);
+        private IList<string> _thisPlayoutNodesIds = new List<string>();
         private int _iterationsCount = 0;
         private T _currentNode;
 
-        public string GetNextMove()
+        public IDictionary<string, int> GetNextMove()
         {
             _currentNode = NodeHandler.NewNodeFromGameState(GameState);
 
@@ -29,10 +31,16 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 
                 _iterationsCount++;
             }
+            
+            var possibleMovesWithScore = NodeHandler.GetPossibleMovesWithScore(_currentNode);
 
-            var rootChildWithMostVisits = NodeHandler.GetChildNodeWithMostVisits(_currentNode);
-            NodeHandler.DataBroker.CleanAll();
-            return rootChildWithMostVisits != null ? rootChildWithMostVisits.OriginAction : string.Empty;
+            //Cleanup
+            foreach (var id in _thisPlayoutNodesIds)
+            {
+                NodeHandler.DataBroker.Delete(id);
+            }
+
+            return possibleMovesWithScore;
         }
 
         private void SelectionStep()
@@ -58,6 +66,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 
             // New state
             _currentNode = NodeHandler.NewNodeFromPerformingAction(_currentNode, randomAction);
+            _thisPlayoutNodesIds.Add(_currentNode.Id);
         }
 
         private void SimulationStep()
@@ -70,6 +79,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
 
                 // New state
                 _currentNode = NodeHandler.NewNodeFromPerformingAction(_currentNode, randomAction);
+                _thisPlayoutNodesIds.Add(_currentNode.Id);
 
                 simulationsCount++;
                 if (simulationsCount > MaxiumumSimulations)

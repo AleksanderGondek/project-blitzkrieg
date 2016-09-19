@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates;
 using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Factories;
@@ -65,10 +66,10 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Handlers
             return DataBroker.Get(node.Parent);
         }
 
-        public T GetChildNodeWithMostVisits(T node)
+        public IDictionary<string, int> GetPossibleMovesWithScore(T node)
         {
             var nodeChildren = node.Children.Select(childId => DataBroker.Get(childId)).ToList();
-            return nodeChildren.First(x => x.Visits == nodeChildren.Max(y => y.Visits));
+            return nodeChildren.ToDictionary(childNode => childNode.OriginAction, childNode => childNode.Visits);
         }
 
         public void MergeWith(T nodeToMergeTo, string nodeToMergeWithId)

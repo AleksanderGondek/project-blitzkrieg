@@ -10,9 +10,9 @@ Project Blitzkrieg - Scalable game decision engine
 
 | Branch | CI Status |
 | --- | --- |
-| Master | [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=master)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg) |
-| Develop | [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=develop)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg) |
-| Develop .NET Core | [![Build Status](https://travis-ci.org/AleksanderGondek/project-blitzkrieg.svg?branch=develop-net-core)](https://travis-ci.org/AleksanderGondek/project-blitzkrieg) |
+| Master | [![Build status](https://ci.appveyor.com/api/projects/status/acys58e4wm3dkw7a/branch/master?svg=true)](https://ci.appveyor.com/project/AleksanderGondek/project-blitzkrieg/branch/master) |
+| Develop | [![Build status](https://ci.appveyor.com/api/projects/status/acys58e4wm3dkw7a/branch/develop?svg=true)](https://ci.appveyor.com/project/AleksanderGondek/project-blitzkrieg/branch/develop) |
+| Develop .NET Core | [![Build status](https://ci.appveyor.com/api/projects/status/acys58e4wm3dkw7a/branch/develop-net-core?svg=true)](https://ci.appveyor.com/project/AleksanderGondek/project-blitzkrieg/branch/develop-net-core) |
 
 One could think of Blitzkrieg project as “_Artificial Intelligence for games As a Service_” – the intention is to create ease to use, working out-of-the-box solution that will predict best possible moves for any game it is provided with. Moreover, it will be written with scalability in mind, so that it could adjust to the quantity of requests it is receiving or increase its prediction accuracy on the fly, without any effort.
 
