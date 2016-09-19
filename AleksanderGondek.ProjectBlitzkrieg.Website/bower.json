@@ -34,6 +34,8 @@
     "angular": "1.5.5",
     "angular-chessboard": "theborakompanioni/angular-chessboard#^0.0.7",
     "chessboardjs": "chessboard.js#^0.3.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "angular-animate": "1.5.5",
+    "angular-loading-bar": "^0.9.0"
   }
 }

@@ -132,7 +132,12 @@
     <Content Include="Blitzkrieg-Theme\img\jumbotron.jpg" />
     <Content Include="Blitzkrieg-Theme\img\logo-32.png" />
     <Content Include="Blitzkrieg-Theme\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Content\angular-animate\js\angular-animate.min.js" />
     <Content Include="Content\angular-chessboard\js\angular-chessboard.min.js" />
+    <Content Include="Content\angular-loading-bar\loading-bar.css" />
+    <Content Include="Content\angular-loading-bar\loading-bar.js" />
+    <Content Include="Content\angular-loading-bar\loading-bar.min.css" />
+    <Content Include="Content\angular-loading-bar\loading-bar.min.js" />
     <Content Include="Content\angular\js\angular.min.js" />
     <Content Include="Content\blitzkrieg-website\css\blitzkrieg-docs-icon.css" />
     <Content Include="Content\blitzkrieg-website\css\blitzkrieg-docs.css" />
@@ -206,6 +211,7 @@
     <Content Include="Content\angular\js\angular.min.js.gzip" />
     <Content Include="Content\angular\js\angular.min.js.map" />
     <Content Include="Content\underscore\js\underscore-min.map" />
+    <Content Include="Content\angular-animate\js\angular-animate.min.js.map" />
     <None Include="Views\ChessGame\Play.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -75,6 +75,20 @@ gulp.task("copy-angular", function () {
     gutil.log("Angular files copied.");
 });
 
+gulp.task("copy-angular-animate", function () {
+    gutil.log("Coping angular-animate files..");
+    return gulp.src(BOWER_PACKAGES_DIRECTORY + "/angular-animate/*.min.*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/angular-animate/js"));
+    gutil.log("Angular-animate files copied.");
+});
+
+gulp.task("copy-angular-loading-bar", function () {
+    gutil.log("Coping angular-loading-bar files..");
+    return gulp.src(BOWER_PACKAGES_DIRECTORY + "/angular-loading-bar/build/*.*")
+        .pipe(gulp.dest(ASSETS_DIRECTORY + "/angular-loading-bar/"));
+    gutil.log("Angular-loading-bar files copied.");
+});
+
 gulp.task("copy-angular-chessboard", function () {
     gutil.log("Coping angular-chessboard files..");
     return gulp.src(BOWER_PACKAGES_DIRECTORY + "/angular-chessboard/dist/*.min.*")
@@ -121,7 +135,8 @@ gulp.task("copy-custom-fonts", function () {
 gulp.task("copy-assets", ["copy-bootstrap", "copy-bootswatch-darkly",
     "copy-fontawesome", "copy-custom-css", "copy-custom-js", "copy-custom-img",
     "copy-custom-fonts", "copy-jquery", "copy-underscore",
-    "copy-chessboard-js", "copy-angular", "copy-angular-chessboard"]);
+    "copy-chessboard-js", "copy-angular", "copy-angular-animate",
+    "copy-angular-loading-bar", "copy-angular-chessboard"]);
 
 gulp.task("bower", function () {
     return bower();

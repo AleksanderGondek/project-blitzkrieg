@@ -1,9 +1,13 @@
 ﻿"use strict";
 
-angular.module("blitzkrieg", ["nywton.chessboard"])
+angular.module("blitzkrieg", ["nywton.chessboard", "angular-loading-bar", "ngAnimate"])
 .config(['nywtonChessboardConfigProvider', function nywtonChessConfigConfig(chessboardProvider) {
     chessboardProvider.pieceTheme('/Content/chessboard-js/img/chesspieces/wikipedia/{piece}.png')
     .position('start');
+}])
+.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.latencyThreshold = 10;
+    cfpLoadingBarProvider.spinnerTemplate = "<div class=\"screen-centered\"><span class=\"fa fa-spinner fa-spin fa-3x\"></div>";
 }])
 .controller("chessGameCtrl",
     function ($scope, $http, $q, $interval) {
