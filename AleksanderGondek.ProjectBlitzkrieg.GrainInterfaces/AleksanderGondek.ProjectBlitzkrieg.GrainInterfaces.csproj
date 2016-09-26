@@ -58,10 +58,12 @@
     <Compile Include="IHelloWorldGrain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\orleans.codegen.cs" />
+    <Compile Include="Workers\IMctsLeafParallelizationWithUtcWorker.cs" />
     <Compile Include="Workers\IMctsRootParallelizationWithUtcWorker.cs" />
     <Compile Include="Workers\IMctsSerialWithUtcWorker.cs" />
     <Compile Include="Workers\IMctsSharedTreeWithUctMasterWorker.cs" />
     <Compile Include="Workers\IMctsSharedTreeWithUctWorker.cs" />
+    <Compile Include="Workers\IMctsSimulationStepWorker.cs" />
     <Compile Include="Workers\IMctsWorker.cs" />
   </ItemGroup>
   <ItemGroup>

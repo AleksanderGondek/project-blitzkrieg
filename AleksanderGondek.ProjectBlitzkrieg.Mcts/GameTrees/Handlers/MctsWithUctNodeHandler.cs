@@ -55,7 +55,6 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Handlers
         public T UpdateNodeValueAndGetParent(T node)
         {
             node.Visits = node.Visits + 1;
-            // TODO: This make not be greatest idea
             node.Value = node.Value + node.GameState.StateValue;
 
             if (!DataBroker.Update(node))

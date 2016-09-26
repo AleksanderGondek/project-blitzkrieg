@@ -18,7 +18,7 @@ angular.module("blitzkrieg", ["nywton.chessboard", "angular-loading-bar", "ngAni
 
         // Possible execution types
         $scope.executionTypesAvailable = [
-            "Serial-With-Uct", "Root-Parallelization-With-Uct", "Mcts-Shared-Tree-With-Utc"
+            "Serial-With-Uct", "Root-Parallelization-With-Uct", "Leaf-Parallelization-With-Uct", "Mcts-Shared-Tree-With-Utc"
         ];
 
         // Request payload

@@ -25,9 +25,8 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans
             var config = ClientConfiguration.LocalhostSilo();
             GrainClient.Initialize(config);
 
-            var friend = GrainClient.GrainFactory.GetGrain<AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.IHelloWorldGrain>(Guid.NewGuid());
+            var friend = GrainClient.GrainFactory.GetGrain<GrainInterfaces.IHelloWorldGrain>(Guid.NewGuid());
             Console.WriteLine("\n\n{0}\n\n", friend.SayHello().Result);
-
 
 //            var brokerTest = GrainClient.GrainFactory.GetGrain<IMctsBroker>(Guid.NewGuid());
 //            var newGameState = new ChessGameState();
@@ -37,7 +36,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans
 //            var request = new ProcessingRequest()
 //            {
 //                GameState = newGameState.ToJson(),
-//                ExectutionType = AvailableExecutionTypes.MctsSharedTreeParallelizationWithUtc,
+//                ExectutionType = AvailableExecutionTypes.MctsLeafParallelizationWithUct,
 //                MaximumIterations = 40,
 //                MaxiumumSimulations = 40,
 //                Workers = 10

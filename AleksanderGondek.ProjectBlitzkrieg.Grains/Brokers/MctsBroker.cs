@@ -21,6 +21,10 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Brokers
             {
                 worker = GrainFactory.GetGrain<IMctsRootParallelizationWithUtcWorker>(Guid.NewGuid());
             }
+            else if (AvailableExecutionTypes.MctsLeafParallelizationWithUct.Equals(request.ExectutionType))
+            {
+                worker = GrainFactory.GetGrain<IMctsLeafParallelizationWithUtcWorker>(Guid.NewGuid());
+            }
             else if (AvailableExecutionTypes.MctsSharedTreeParallelizationWithUtc.Equals(request.ExectutionType))
             {
                 worker = GrainFactory.GetGrain<IMctsSharedTreeWithUctMasterWorker>(Guid.NewGuid());

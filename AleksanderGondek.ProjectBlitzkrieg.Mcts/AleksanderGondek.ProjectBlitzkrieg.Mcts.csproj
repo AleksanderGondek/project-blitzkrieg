@@ -66,6 +66,7 @@
     <Compile Include="GameTrees\Playouts\DefaultSerialPlayout.cs" />
     <Compile Include="GameTrees\Playouts\IMctsPlayout.cs" />
     <Compile Include="GameTrees\Playouts\SharedTreePlayout.cs" />
+    <Compile Include="GameTrees\Playouts\SimulationOnlyPlayout.cs" />
     <Compile Include="GameTrees\Utilities\NodeComparators.cs" />
     <Compile Include="Persistence\Contracts\IDefaultDocumentContract.cs" />
     <Compile Include="Persistence\Repositories\InMemoryDocumentRepository.cs" />
