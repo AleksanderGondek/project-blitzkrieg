@@ -104,6 +104,12 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess
                 return new List<string>();
             }
 
+            // If there are only 3 pawns this will take way too long
+            if (_gameBoard.Count(x => x.Value.ChessPiece != BoardDefinitions.ChessPieces.Pawn) <= 3)
+            {
+                return new List<string>();
+            }
+
             // Extract all positions that enemy may move to next turn
             var allEnemyMoves = enemyPlayerActions.Select(x => x.Split(',').Skip(1).First()).ToList();
             // Get All possible actions for current players King

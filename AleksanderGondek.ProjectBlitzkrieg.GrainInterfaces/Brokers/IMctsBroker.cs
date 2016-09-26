@@ -7,5 +7,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Brokers
     public interface IMctsBroker : IGrainWithGuidKey
     {
         Task<string> GetNextMove(ProcessingRequest request);
+
+        Task<bool> CleanInMemoryRepository();
     }
 }

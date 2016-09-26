@@ -10,5 +10,6 @@ namespace AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Contracts
         public int Workers;
         public int MaximumIterations;
         public int MaxiumumSimulations;
+        public Guid TargetGrain;
     }
 }

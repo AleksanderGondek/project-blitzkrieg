@@ -8,8 +8,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.Persistence.Repositories
 {
     public class InMemoryDocumentRepository<T>: IDefaultDocumentContract<T> where T: class, IMctsNode, new()
     {
-        private static readonly Lazy<ConcurrentDictionary<string,T>> InMemoryLazyStore = new Lazy<ConcurrentDictionary<string,T>>();
-        private static ConcurrentDictionary<string, T> InMemoryStore => InMemoryLazyStore.Value;
+        private static ConcurrentDictionary<string, T> InMemoryStore = new ConcurrentDictionary<string, T>();
 
         public void Dispose() {}
 

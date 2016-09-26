@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Brokers;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Contracts;
 using AleksanderGondek.ProjectBlitzkrieg.GrainInterfaces.Workers;
+using AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees;
+using AleksanderGondek.ProjectBlitzkrieg.Mcts.Persistence.Repositories;
 using Orleans;
 
 namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Brokers
@@ -15,7 +17,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Brokers
             IMctsWorker worker;
             if (AvailableExecutionTypes.MctsSerialWithUtc.Equals(request.ExectutionType))
             {
-                worker = GrainFactory.GetGrain<IMctsSerialWithUtcWorker>(Guid.NewGuid());
+                worker = GrainFactory.GetGrain<IMctsSerialWithUtcWorker>(request.TargetGrain);
             }
             else if (AvailableExecutionTypes.MctsRootParallelizationWithUct.Equals(request.ExectutionType))
             {
@@ -37,6 +39,13 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Brokers
             var possibleMovesWithScores = await worker.GetNextMove(request);
             var action = possibleMovesWithScores.First(x => x.Value == possibleMovesWithScores.Values.Max()).Key;
             return action;
+        }
+
+        public Task<bool> CleanInMemoryRepository()
+        {
+            var inMemoryRepository = new InMemoryDocumentRepository<MctsNode>();
+            inMemoryRepository.CleanAll();
+            return Task.FromResult(true);
         }
     }
 }

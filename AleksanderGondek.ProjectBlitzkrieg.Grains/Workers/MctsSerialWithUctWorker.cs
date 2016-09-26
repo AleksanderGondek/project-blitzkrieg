@@ -15,39 +15,49 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Grains.Workers
 {
     public class MctsSerialWithUctWorker : Grain, IMctsSerialWithUtcWorker
     {
-        //TODO: This should be generic
-        private IGameStateFactory<ChessGameState> _gameStateFactory;
-        private IMctsNodeFactory<MctsNode, ChessGameState> _mctsNodeFactory;
-        private IMctsNodeHandler<MctsNode, ChessGameState> _mctsNodeHandler;
-
-        private void Initialize()
-        {
-            if (_gameStateFactory == null)
-            {
-                _gameStateFactory = new GameStateFactory<ChessGameState>();
-            }
-
-            if (_mctsNodeFactory == null)
-            {
-                _mctsNodeFactory = new MctsNodeFactory<MctsNode, ChessGameState>()
-                {
-                    GameStateFactory = _gameStateFactory
-                };
-            }
-
-            if (_mctsNodeHandler == null)
-            {
-                _mctsNodeHandler = new MctsWithUctNodeHandler<MctsNode, ChessGameState>()
-                {
-                    DataBroker = new InMemoryDocumentRepository<MctsNode>(),
-                    NodeFactory = _mctsNodeFactory
-                };
-            }
-        }
+//        //TODO: This should be generic
+//        private IGameStateFactory<ChessGameState> _gameStateFactory;
+//        private IMctsNodeFactory<MctsNode, ChessGameState> _mctsNodeFactory;
+//        private IMctsNodeHandler<MctsNode, ChessGameState> _mctsNodeHandler;
+//
+//        private void Initialize()
+//        {
+//            if (_gameStateFactory == null)
+//            {
+//                _gameStateFactory = new GameStateFactory<ChessGameState>();
+//            }
+//
+//            if (_mctsNodeFactory == null)
+//            {
+//                _mctsNodeFactory = new MctsNodeFactory<MctsNode, ChessGameState>()
+//                {
+//                    GameStateFactory = _gameStateFactory
+//                };
+//            }
+//
+//            if (_mctsNodeHandler == null)
+//            {
+//                _mctsNodeHandler = new MctsWithUctNodeHandler<MctsNode, ChessGameState>()
+//                {
+//                    DataBroker = new InMemoryDocumentRepository<MctsNode>(),
+//                    NodeFactory = _mctsNodeFactory
+//                };
+//            }
+//        }
 
         public async Task<IDictionary<string, int>> GetNextMove(ProcessingRequest request)
         {
-            Initialize();
+            var _gameStateFactory = new GameStateFactory<ChessGameState>();
+            var _mctsNodeFactory = new MctsNodeFactory<MctsNode, ChessGameState>()
+            {
+                GameStateFactory = _gameStateFactory
+            };
+            var _mctsNodeHandler = new MctsWithUctNodeHandler<MctsNode, ChessGameState>()
+            {
+                DataBroker = new InMemoryDocumentRepository<MctsNode>(),
+                NodeFactory = _mctsNodeFactory
+            };
+//            Initialize();
             var playout = new DefaultSerialPlayout<MctsNode, ChessGameState>
             {
                 NodeHandler = _mctsNodeHandler,

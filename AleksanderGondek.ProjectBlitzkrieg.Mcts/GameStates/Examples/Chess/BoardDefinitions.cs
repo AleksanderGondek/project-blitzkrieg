@@ -54,6 +54,31 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameStates.Examples.Chess
                 {"G7", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[1], IsStartingPosition = true }},
                 {"H7", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[1], IsStartingPosition = true }}
             };
-        } 
+        }
+
+        public static IDictionary<string, ChessField> GetDifficultBoard(IList<string> players)
+        {
+            if (players.Count < 2)
+            {
+                return new Dictionary<string, ChessField>();
+            }
+
+            return new Dictionary<string, ChessField>
+            {
+                {"D1", new ChessField {ChessPiece = ChessPieces.Bishop, Owner = players[0], IsStartingPosition = false }},
+                {"C3", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[1], IsStartingPosition = false }},
+                {"E3", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[1], IsStartingPosition = false }},
+                {"G3", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[0], IsStartingPosition = false }},
+                {"B4", new ChessField {ChessPiece = ChessPieces.Bishop, Owner = players[1], IsStartingPosition = false }},
+                {"G4", new ChessField {ChessPiece = ChessPieces.Knight, Owner = players[0], IsStartingPosition = false }},
+                {"C5", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[1], IsStartingPosition = false }},
+                {"G5", new ChessField {ChessPiece = ChessPieces.Knight, Owner = players[1], IsStartingPosition = false }},
+                {"A6", new ChessField {ChessPiece = ChessPieces.Knight, Owner = players[1], IsStartingPosition = false }},
+                {"D6", new ChessField {ChessPiece = ChessPieces.King, Owner = players[0], IsStartingPosition = false }},
+                {"H6", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[1], IsStartingPosition = false }},
+                {"D7", new ChessField {ChessPiece = ChessPieces.Pawn, Owner = players[0], IsStartingPosition = false }},
+                {"H7", new ChessField {ChessPiece = ChessPieces.King, Owner = players[1], IsStartingPosition = false }},
+            };
+        }
     }
 }

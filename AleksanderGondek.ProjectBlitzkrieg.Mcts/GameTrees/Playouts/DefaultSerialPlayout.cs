@@ -39,6 +39,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.Mcts.GameTrees.Playouts
             {
                 NodeHandler.DataBroker.Delete(id);
             }
+            _thisPlayoutNodesIds.Clear();
 
             return possibleMovesWithScore;
         }

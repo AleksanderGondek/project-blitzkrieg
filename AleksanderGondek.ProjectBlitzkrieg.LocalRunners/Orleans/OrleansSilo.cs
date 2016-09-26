@@ -10,6 +10,7 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans
     public static class OrleansSilo
     {
         private static OrleansHostWrapper _hostWrapper;
+        private static bool _runTests = true;
  
         public static void Start()
         {
@@ -28,25 +29,10 @@ namespace AleksanderGondek.ProjectBlitzkrieg.LocalRunners.Orleans
             var friend = GrainClient.GrainFactory.GetGrain<GrainInterfaces.IHelloWorldGrain>(Guid.NewGuid());
             Console.WriteLine("\n\n{0}\n\n", friend.SayHello().Result);
 
-//            var brokerTest = GrainClient.GrainFactory.GetGrain<IMctsBroker>(Guid.NewGuid());
-//            var newGameState = new ChessGameState();
-//            newGameState.Initialize();
-//            newGameState.IsValid();
-//
-//            var request = new ProcessingRequest()
-//            {
-//                GameState = newGameState.ToJson(),
-//                ExectutionType = AvailableExecutionTypes.MctsLeafParallelizationWithUct,
-//                MaximumIterations = 40,
-//                MaxiumumSimulations = 40,
-//                Workers = 10
-//            };
-//
-//            Console.WriteLine("\n\n{0}\n\n", brokerTest.GetNextMove(request).Result);
-
-            // TODO: once the previous call returns, the silo is up and running.
-            //       This is the place your custom logic, for example calling client logic
-            //       or initializing an HTTP front end for accepting incoming requests.
+            if (_runTests)
+            {
+                TestsRunner.Run(AvailableExecutionTypes.MctsSharedTreeParallelizationWithUtc);
+            }
 
             Console.WriteLine("Orleans Silo is running.\nPress Enter to terminate...");
             Console.ReadLine();
